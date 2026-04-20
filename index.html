@@ -21,9 +21,7 @@
             --text-secondary: #9aa7b9;
             --border: #1e2a44;
             --success: #2ecc71;
-            --warning: #f39c12;
             --danger: #e74c3c;
-            --info: #3498db;
         }
 
         body {
@@ -33,7 +31,6 @@
             line-height: 1.5;
         }
 
-        /* CABEÇALHO PADRÃO */
         .navbar {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border);
@@ -93,7 +90,6 @@
             font-weight: bold;
         }
 
-        /* CONTEÚDO */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -180,7 +176,6 @@
             display: inline-block;
         }
 
-        /* FÓRUM */
         .forum-card {
             background: var(--bg-card);
             border-radius: 20px;
@@ -346,6 +341,29 @@
             color: var(--text-secondary);
         }
 
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            gap: 16px;
+        }
+
+        .nav-btn {
+            background: var(--gold-dark);
+            color: var(--bg-dark);
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold);
+            transform: scale(1.02);
+        }
+
         .footer {
             background: var(--bg-card);
             text-align: center;
@@ -382,37 +400,27 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
+            .nav-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- CABEÇALHO PADRÃO -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="https://lrpluciano-pereira.github.io/index/" class="logo">
-                <span class="logo-icon">⚖️</span>
-                <span>Ética Digital</span>
+            <a href="https://lrpluciano-pereira.github.io/index.html" class="logo">
+                <span>⚖️ Ética Digital</span>
             </a>
             <div class="nav-links">
-                <a href="https://lrpluciano-pereira.github.io/index/">🏠 Início</a>
-                <a href="https://lrpluciano-pereira.github.io/teorico/">📚 Módulo Teórico</a>
-                <a href="https://lrpluciano-pereira.github.io/simulador/">🎮 Simulador</a>
-                <a href="https://lrpluciano-pereira.github.io/forum/" class="active">💬 Atividades</a>
+                <a href="https://lrpluciano-pereira.github.io/index.html">🏠 Início</a>
+                <a href="https://lrpluciano-pereira.github.io/conteudo.html">📚 Conteúdo</a>
+                <a href="https://lrpluciano-pereira.github.io/simulador.html">🎮 Simulador</a>
+                <a href="https://lrpluciano-pereira.github.io/forum.html" class="active">💬 Atividades</a>
             </div>
             <div class="user-info">
                 <span class="progress-badge" id="progressBadge">0%</span>
-                <span>👤 Aluno</span>
+                <span id="userName">👤 Aluno</span>
             </div>
         </div>
     </nav>
@@ -421,9 +429,7 @@
         <h1>💬 Atividades e Fórum</h1>
         <p class="subtitle">Reflita sobre os conceitos estudados e compartilhe suas ideias com a comunidade</p>
 
-        <!-- ============================================ -->
-        <!-- SEÇÃO 1: ATIVIDADES REFLEXIVAS -->
-        <!-- ============================================ -->
+        <!-- ATIVIDADES REFLEXIVAS -->
         <div class="activity-card">
             <div class="question">
                 <span class="question-number">1</span>
@@ -468,9 +474,7 @@
             <span id="saved4" class="saved-indicator"></span>
         </div>
 
-        <!-- ============================================ -->
-        <!-- SEÇÃO 2: FÓRUM DE DISCUSSÃO -->
-        <!-- ============================================ -->
+        <!-- FÓRUM DE DISCUSSÃO -->
         <div class="forum-card">
             <h2>💬 Fórum de Discussão</h2>
             
@@ -486,9 +490,7 @@
                 </div>
             </div>
 
-            <div class="forum-posts" id="forumPosts">
-                <!-- Posts carregados dinamicamente -->
-            </div>
+            <div class="forum-posts" id="forumPosts"></div>
             
             <div class="new-post">
                 <h3>✍️ Participar da discussão</h3>
@@ -496,19 +498,29 @@
                 <button class="publish-btn" onclick="adicionarPost()">📢 Publicar no fórum</button>
             </div>
         </div>
+
+        <!-- Navegação -->
+        <div class="nav-buttons">
+            <a href="https://lrpluciano-pereira.github.io/simulador.html" class="nav-btn">🎮 Voltar ao Simulador</a>
+            <a href="https://lrpluciano-pereira.github.io/index.html" class="nav-btn">🏠 Voltar ao Dashboard</a>
+        </div>
     </main>
 
     <footer class="footer">
         <p>Universidade Federal do ABC | Licença Creative Commons BY-NC-SA | Luciano Rodrigues Pereira</p>
-        <p style="margin-top: 8px; font-size: 0.7rem;">Participe ativamente do fórum para conquistar o badge "Mestre do Diálogo"!</p>
     </footer>
 
     <script>
-        // ============================================
+        // Carregar nome do usuário
+        const usuarioNome = localStorage.getItem('usuario_nome') || 'Aluno';
+        document.getElementById('userName').innerHTML = `👤 ${usuarioNome}`;
+
+        // Verificar login
+        if (!localStorage.getItem('usuario_logado')) {
+            window.location.href = 'https://lrpluciano-pereira.github.io/login.html';
+        }
+
         // ATIVIDADES REFLEXIVAS
-        // ============================================
-        
-        // Salvar resposta individual
         function salvarResposta(numero) {
             const resposta = document.getElementById(`resposta${numero}`).value;
             if (resposta.trim().length === 0) {
@@ -518,7 +530,6 @@
             
             localStorage.setItem(`resposta_atividade_${numero}`, resposta);
             
-            // Mostrar indicador de salvo
             const savedSpan = document.getElementById(`saved${numero}`);
             savedSpan.innerHTML = '✓ Salvo!';
             savedSpan.style.color = '#2ecc71';
@@ -528,10 +539,8 @@
             }, 3000);
             
             alert(`✅ Resposta ${numero} salva com sucesso!`);
-            atualizarProgresso();
         }
         
-        // Carregar respostas salvas
         function carregarRespostas() {
             for(let i = 1; i <= 4; i++) {
                 const salva = localStorage.getItem(`resposta_atividade_${i}`);
@@ -542,22 +551,15 @@
             }
         }
         
-        // ============================================
-        // FÓRUM DE DISCUSSÃO
-        // ============================================
-        
+        // FÓRUM
         let totalLikes = 0;
         
-        // Carregar posts do fórum
         function carregarForum() {
             let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
             const container = document.getElementById('forumPosts');
             const totalPostsSpan = document.getElementById('totalPosts');
             
-            // Atualizar contador de posts
-            if (totalPostsSpan) {
-                totalPostsSpan.innerHTML = posts.length;
-            }
+            if (totalPostsSpan) totalPostsSpan.innerHTML = posts.length;
             
             if (!container) return;
             
@@ -571,44 +573,31 @@
                 return;
             }
             
-            // Calcular total de likes
             totalLikes = posts.reduce((acc, post) => acc + (post.likes || 0), 0);
             const totalLikesSpan = document.getElementById('totalLikes');
-            if (totalLikesSpan) {
-                totalLikesSpan.innerHTML = totalLikes;
-            }
+            if (totalLikesSpan) totalLikesSpan.innerHTML = totalLikes;
             
             container.innerHTML = posts.map((post, index) => `
                 <div class="forum-post" data-post-id="${index}">
                     <div class="post-header">
-                        <div class="post-author">
-                            👤 ${post.autor}
-                        </div>
+                        <div class="post-author">👤 ${escapeHtml(post.autor)}</div>
                         <div class="post-date">📅 ${post.data}</div>
                     </div>
-                    <div class="post-content">
-                        ${escapeHtml(post.conteudo)}
-                    </div>
+                    <div class="post-content">${escapeHtml(post.conteudo)}</div>
                     <div class="post-actions">
-                        <button class="post-like" onclick="darLike(${index})">
-                            ❤️ ${post.likes || 0} curtidas
-                        </button>
-                        <button class="post-report" onclick="reportarPost(${index})">
-                            🚩 Reportar
-                        </button>
+                        <button class="post-like" onclick="darLike(${index})">❤️ ${post.likes || 0} curtidas</button>
+                        <button class="post-report" onclick="reportarPost(${index})">🚩 Reportar</button>
                     </div>
                 </div>
             `).join('');
         }
         
-        // Função para escapar HTML (segurança)
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
         
-        // Dar like em um post
         function darLike(postIndex) {
             let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
             if (posts[postIndex]) {
@@ -618,15 +607,12 @@
             }
         }
         
-        // Reportar post (simulação)
         function reportarPost(postIndex) {
             if (confirm('Tem certeza que deseja reportar este post? Nossa equipe irá analisar.')) {
                 alert('✅ Post reportado com sucesso. Obrigado por ajudar a manter a comunidade saudável!');
-                // Em uma versão real, isso enviaria um email ou salvaria em uma lista de reportes
             }
         }
         
-        // Adicionar novo post
         function adicionarPost() {
             const conteudo = document.getElementById('newPostContent').value;
             if(!conteudo.trim()) {
@@ -634,7 +620,6 @@
                 return;
             }
             
-            // Gerar nome de autor aleatório (simulação)
             const nomes = [
                 'FilósofoDigital', 'JustoMeio', 'Eudaimon', 'SábioPrudente',
                 'Phronesis', 'AprendizDeÉtica', 'VirtudeDigital', 'Mesotes'
@@ -653,13 +638,9 @@
             document.getElementById('newPostContent').value = '';
             carregarForum();
             alert('📢 Post publicado com sucesso!');
-            atualizarProgresso();
         }
         
-        // ============================================
-        // PROGRESSO GERAL
-        // ============================================
-        
+        // PROGRESSO
         function atualizarProgresso() {
             let atividadesConcluidas = 0;
             for(let i = 1; i <= 4; i++) {
@@ -671,38 +652,21 @@
             
             let totalProgresso = 0;
             let totalItens = 0;
-            
-            // Atividades: 4 itens
             totalProgresso += atividadesConcluidas;
             totalItens += 4;
-            
-            // Fórum: considerar 3 posts como 1 item completo
             const forumCompleto = forumPosts.length >= 3 ? 1 : 0;
             totalProgresso += forumCompleto;
             totalItens += 1;
             
             const percentual = Math.round((totalProgresso / totalItens) * 100);
-            
             const progressBadge = document.getElementById('progressBadge');
-            if (progressBadge) {
-                progressBadge.innerHTML = `${percentual}%`;
-            }
+            if (progressBadge) progressBadge.innerHTML = `${percentual}%`;
         }
         
-        // ============================================
-        // INICIALIZAÇÃO
-        // ============================================
-        
-        // Carregar dados ao iniciar
         carregarRespostas();
         carregarForum();
         atualizarProgresso();
-        
-        // Atualizar a cada 3 segundos (capturar mudanças)
-        setInterval(() => {
-            carregarForum();
-            atualizarProgresso();
-        }, 3000);
+        setInterval(() => { carregarForum(); atualizarProgresso(); }, 3000);
     </script>
 </body>
 </html>

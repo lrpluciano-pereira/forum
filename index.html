@@ -20,6 +20,10 @@
             --text-primary: #ffffff;
             --text-secondary: #9aa7b9;
             --border: #1e2a44;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --info: #3498db;
         }
 
         body {
@@ -29,7 +33,7 @@
             line-height: 1.5;
         }
 
-        /* ===== CABEÇALHO PADRÃO ===== */
+        /* CABEÇALHO PADRÃO */
         .navbar {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border);
@@ -56,10 +60,6 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            margin-right: 8px;
-        }
-
         .nav-links {
             display: flex;
             gap: 24px;
@@ -73,21 +73,27 @@
             padding: 8px 0;
         }
 
-        .nav-links a:hover {
-            color: var(--gold);
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .nav-links a.active {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--gold);
             border-bottom: 2px solid var(--gold);
         }
 
         .user-info {
-            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
-        /* ===== FIM CABEÇALHO ===== */
 
+        .progress-badge {
+            background: var(--gold-dark);
+            color: var(--bg-dark);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* CONTEÚDO */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -101,6 +107,12 @@
             padding: 24px;
             margin-bottom: 24px;
             border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--gold);
         }
 
         .question {
@@ -108,6 +120,23 @@
             font-weight: 500;
             margin-bottom: 16px;
             color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .question-number {
+            background: var(--gold-dark);
+            color: var(--bg-dark);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .answer-area {
@@ -119,6 +148,12 @@
             color: var(--text-primary);
             font-family: inherit;
             resize: vertical;
+            font-size: 0.95rem;
+        }
+
+        .answer-area:focus {
+            outline: none;
+            border-color: var(--gold);
         }
 
         .save-answer {
@@ -130,12 +165,68 @@
             margin-top: 12px;
             cursor: pointer;
             font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .save-answer:hover {
+            background: #e6c453;
+            transform: scale(0.98);
+        }
+
+        .saved-indicator {
+            font-size: 0.7rem;
+            color: var(--success);
+            margin-left: 12px;
+            display: inline-block;
+        }
+
+        /* FÓRUM */
+        .forum-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .forum-card h2 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .forum-stats {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .stat-number {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         .forum-posts {
-            margin-top: 20px;
-            max-height: 400px;
+            max-height: 500px;
             overflow-y: auto;
+            margin-bottom: 24px;
         }
 
         .forum-post {
@@ -143,11 +234,28 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 12px;
+            transition: 0.2s;
+        }
+
+        .forum-post:hover {
+            background: #1a2542;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
         }
 
         .post-author {
             color: var(--gold);
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .post-date {
@@ -155,8 +263,49 @@
             color: var(--text-secondary);
         }
 
+        .post-content {
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 16px;
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+            margin-top: 8px;
+        }
+
+        .post-like, .post-report {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: 0.2s;
+        }
+
+        .post-like:hover {
+            color: var(--gold);
+        }
+
+        .post-report:hover {
+            color: var(--danger);
+        }
+
         .new-post {
             margin-top: 24px;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+        }
+
+        .new-post h3 {
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
         }
 
         .new-post textarea {
@@ -167,6 +316,34 @@
             padding: 12px;
             color: var(--text-primary);
             font-family: inherit;
+            resize: vertical;
+        }
+
+        .new-post textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .publish-btn {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            margin-top: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .publish-btn:hover {
+            background: #e6c453;
+        }
+
+        .empty-forum {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
         }
 
         .footer {
@@ -180,13 +357,13 @@
 
         h1 {
             font-size: 2rem;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             color: var(--gold);
         }
 
-        h2 {
-            color: var(--gold);
-            margin-bottom: 20px;
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
         }
 
         @media (max-width: 768px) {
@@ -197,6 +374,25 @@
             .nav-links {
                 justify-content: center;
             }
+            .forum-stats {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -215,61 +411,127 @@
                 <a href="https://lrpluciano-pereira.github.io/forum/" class="active">💬 Atividades</a>
             </div>
             <div class="user-info">
+                <span class="progress-badge" id="progressBadge">0%</span>
                 <span>👤 Aluno</span>
             </div>
         </div>
     </nav>
 
     <main class="container">
-        <h1>💬 Atividades Reflexivas e Fórum</h1>
-        
+        <h1>💬 Atividades e Fórum</h1>
+        <p class="subtitle">Reflita sobre os conceitos estudados e compartilhe suas ideias com a comunidade</p>
+
+        <!-- ============================================ -->
+        <!-- SEÇÃO 1: ATIVIDADES REFLEXIVAS -->
+        <!-- ============================================ -->
         <div class="activity-card">
-            <div class="question">1. Reflita e responda: Em uma situação onde você está estudando para uma prova importante, mas seu celular não para de vibrar com mensagens de amigos. Como você aplicaria o conceito de "Justo Meio" de Aristóteles?</div>
+            <div class="question">
+                <span class="question-number">1</span>
+                📝 Reflita e responda
+            </div>
+            <p style="margin-bottom: 16px; color: var(--text-secondary);">Em uma situação onde você está estudando para uma prova importante, mas seu celular não para de vibrar com mensagens de amigos. Como você aplicaria o conceito de "Justo Meio" de Aristóteles?</p>
             <textarea class="answer-area" rows="3" id="resposta1" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(1)">💾 Salvar resposta</button>
+            <span id="saved1" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">2. Identifique uma situação do seu cotidiano digital onde você percebeu excesso ou falta no uso da tecnologia. Qual seria a atitude equilibrada (justo meio)?</div>
+            <div class="question">
+                <span class="question-number">2</span>
+                📝 Reflita e responda
+            </div>
+            <p style="margin-bottom: 16px; color: var(--text-secondary);">Identifique uma situação do seu cotidiano digital onde você percebeu excesso ou falta no uso da tecnologia. Qual seria a atitude equilibrada (justo meio)?</p>
             <textarea class="answer-area" rows="3" id="resposta2" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(2)">💾 Salvar resposta</button>
+            <span id="saved2" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">3. O que é Eudaimonia para Aristóteles? Como as escolhas digitais podem afetar seu florescimento humano?</div>
+            <div class="question">
+                <span class="question-number">3</span>
+                📝 Reflita e responda
+            </div>
+            <p style="margin-bottom: 16px; color: var(--text-secondary);">O que é Eudaimonia para Aristóteles? Como as escolhas digitais podem afetar seu florescimento humano?</p>
             <textarea class="answer-area" rows="3" id="resposta3" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(3)">💾 Salvar resposta</button>
+            <span id="saved3" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">4. (Opcional) Compartilhe um dilema ético que você já viveu nas redes sociais e como poderia ter agido de forma mais equilibrada.</div>
+            <div class="question">
+                <span class="question-number">4</span>
+                📝 Reflita e responda
+            </div>
+            <p style="margin-bottom: 16px; color: var(--text-secondary);">Compartilhe um dilema ético que você já viveu nas redes sociais e como poderia ter agido de forma mais equilibrada à luz da ética aristotélica.</p>
             <textarea class="answer-area" rows="3" id="resposta4" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(4)">💾 Salvar resposta</button>
+            <span id="saved4" class="saved-indicator"></span>
         </div>
 
-        <div class="activity-card">
-            <h2 style="margin-top: 0;">💬 Fórum: Debates sobre Ética Digital</h2>
-            <div class="forum-posts" id="forumPosts"></div>
+        <!-- ============================================ -->
+        <!-- SEÇÃO 2: FÓRUM DE DISCUSSÃO -->
+        <!-- ============================================ -->
+        <div class="forum-card">
+            <h2>💬 Fórum de Discussão</h2>
+            
+            <div class="forum-stats">
+                <div class="stat-item">
+                    📊 <span class="stat-number" id="totalPosts">0</span> posts no fórum
+                </div>
+                <div class="stat-item">
+                    ❤️ <span class="stat-number" id="totalLikes">0</span> curtidas
+                </div>
+                <div class="stat-item">
+                    👥 Comunidade ativa
+                </div>
+            </div>
+
+            <div class="forum-posts" id="forumPosts">
+                <!-- Posts carregados dinamicamente -->
+            </div>
             
             <div class="new-post">
                 <h3>✍️ Participar da discussão</h3>
-                <textarea id="newPostContent" rows="3" placeholder="Compartilhe sua opinião sobre o Justo Meio no ambiente digital..."></textarea>
-                <button class="save-answer" style="margin-top: 12px;" onclick="adicionarPost()">📢 Publicar no fórum</button>
+                <textarea id="newPostContent" rows="3" placeholder="Compartilhe sua opinião sobre o Justo Meio no ambiente digital. Como você aplica esses conceitos no seu dia a dia?"></textarea>
+                <button class="publish-btn" onclick="adicionarPost()">📢 Publicar no fórum</button>
             </div>
         </div>
     </main>
 
     <footer class="footer">
         <p>Universidade Federal do ABC | Licença Creative Commons BY-NC-SA | Luciano Rodrigues Pereira</p>
+        <p style="margin-top: 8px; font-size: 0.7rem;">Participe ativamente do fórum para conquistar o badge "Mestre do Diálogo"!</p>
     </footer>
 
     <script>
+        // ============================================
+        // ATIVIDADES REFLEXIVAS
+        // ============================================
+        
+        // Salvar resposta individual
         function salvarResposta(numero) {
             const resposta = document.getElementById(`resposta${numero}`).value;
+            if (resposta.trim().length === 0) {
+                alert('Por favor, escreva sua reflexão antes de salvar.');
+                return;
+            }
+            
             localStorage.setItem(`resposta_atividade_${numero}`, resposta);
+            
+            // Mostrar indicador de salvo
+            const savedSpan = document.getElementById(`saved${numero}`);
+            savedSpan.innerHTML = '✓ Salvo!';
+            savedSpan.style.color = '#2ecc71';
+            
+            setTimeout(() => {
+                savedSpan.innerHTML = '';
+            }, 3000);
+            
             alert(`✅ Resposta ${numero} salva com sucesso!`);
+            atualizarProgresso();
         }
         
+        // Carregar respostas salvas
         function carregarRespostas() {
             for(let i = 1; i <= 4; i++) {
                 const salva = localStorage.getItem(`resposta_atividade_${i}`);
@@ -280,43 +542,167 @@
             }
         }
         
+        // ============================================
+        // FÓRUM DE DISCUSSÃO
+        // ============================================
+        
+        let totalLikes = 0;
+        
+        // Carregar posts do fórum
         function carregarForum() {
             let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
             const container = document.getElementById('forumPosts');
-            if(container) {
-                if(posts.length === 0) {
-                    container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">Nenhuma postagem ainda. Seja o primeiro a comentar!</p>';
-                } else {
-                    container.innerHTML = posts.map(post => `
-                        <div class="forum-post">
-                            <div class="post-author">👤 ${post.autor}</div>
-                            <div class="post-date">${post.data}</div>
-                            <p style="margin-top: 8px;">${post.conteudo}</p>
+            const totalPostsSpan = document.getElementById('totalPosts');
+            
+            // Atualizar contador de posts
+            if (totalPostsSpan) {
+                totalPostsSpan.innerHTML = posts.length;
+            }
+            
+            if (!container) return;
+            
+            if (posts.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-forum">
+                        💬 <strong>Nenhuma postagem ainda</strong><br>
+                        <span style="font-size: 0.85rem;">Seja o primeiro a compartilhar sua opinião sobre a ética digital!</span>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Calcular total de likes
+            totalLikes = posts.reduce((acc, post) => acc + (post.likes || 0), 0);
+            const totalLikesSpan = document.getElementById('totalLikes');
+            if (totalLikesSpan) {
+                totalLikesSpan.innerHTML = totalLikes;
+            }
+            
+            container.innerHTML = posts.map((post, index) => `
+                <div class="forum-post" data-post-id="${index}">
+                    <div class="post-header">
+                        <div class="post-author">
+                            👤 ${post.autor}
                         </div>
-                    `).join('');
-                }
+                        <div class="post-date">📅 ${post.data}</div>
+                    </div>
+                    <div class="post-content">
+                        ${escapeHtml(post.conteudo)}
+                    </div>
+                    <div class="post-actions">
+                        <button class="post-like" onclick="darLike(${index})">
+                            ❤️ ${post.likes || 0} curtidas
+                        </button>
+                        <button class="post-report" onclick="reportarPost(${index})">
+                            🚩 Reportar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Função para escapar HTML (segurança)
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Dar like em um post
+        function darLike(postIndex) {
+            let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
+            if (posts[postIndex]) {
+                posts[postIndex].likes = (posts[postIndex].likes || 0) + 1;
+                localStorage.setItem('forum_posts', JSON.stringify(posts));
+                carregarForum();
             }
         }
         
+        // Reportar post (simulação)
+        function reportarPost(postIndex) {
+            if (confirm('Tem certeza que deseja reportar este post? Nossa equipe irá analisar.')) {
+                alert('✅ Post reportado com sucesso. Obrigado por ajudar a manter a comunidade saudável!');
+                // Em uma versão real, isso enviaria um email ou salvaria em uma lista de reportes
+            }
+        }
+        
+        // Adicionar novo post
         function adicionarPost() {
             const conteudo = document.getElementById('newPostContent').value;
             if(!conteudo.trim()) {
                 alert('Digite uma mensagem antes de publicar.');
                 return;
             }
+            
+            // Gerar nome de autor aleatório (simulação)
+            const nomes = [
+                'FilósofoDigital', 'JustoMeio', 'Eudaimon', 'SábioPrudente',
+                'Phronesis', 'AprendizDeÉtica', 'VirtudeDigital', 'Mesotes'
+            ];
+            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)] + Math.floor(Math.random() * 100);
+            
             let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
             posts.unshift({
-                autor: `Aluno_${Math.floor(Math.random() * 1000)}`,
-                data: new Date().toLocaleString(),
-                conteudo: conteudo
+                autor: nomeAleatorio,
+                data: new Date().toLocaleString('pt-BR'),
+                conteudo: conteudo,
+                likes: 0
             });
+            
             localStorage.setItem('forum_posts', JSON.stringify(posts));
             document.getElementById('newPostContent').value = '';
             carregarForum();
+            alert('📢 Post publicado com sucesso!');
+            atualizarProgresso();
         }
         
+        // ============================================
+        // PROGRESSO GERAL
+        // ============================================
+        
+        function atualizarProgresso() {
+            let atividadesConcluidas = 0;
+            for(let i = 1; i <= 4; i++) {
+                const resposta = localStorage.getItem(`resposta_atividade_${i}`);
+                if(resposta && resposta.trim().length > 0) atividadesConcluidas++;
+            }
+            
+            const forumPosts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
+            
+            let totalProgresso = 0;
+            let totalItens = 0;
+            
+            // Atividades: 4 itens
+            totalProgresso += atividadesConcluidas;
+            totalItens += 4;
+            
+            // Fórum: considerar 3 posts como 1 item completo
+            const forumCompleto = forumPosts.length >= 3 ? 1 : 0;
+            totalProgresso += forumCompleto;
+            totalItens += 1;
+            
+            const percentual = Math.round((totalProgresso / totalItens) * 100);
+            
+            const progressBadge = document.getElementById('progressBadge');
+            if (progressBadge) {
+                progressBadge.innerHTML = `${percentual}%`;
+            }
+        }
+        
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+        
+        // Carregar dados ao iniciar
         carregarRespostas();
         carregarForum();
+        atualizarProgresso();
+        
+        // Atualizar a cada 3 segundos (capturar mudanças)
+        setInterval(() => {
+            carregarForum();
+            atualizarProgresso();
+        }, 3000);
     </script>
 </body>
 </html>

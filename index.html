@@ -21,7 +21,6 @@
             --text-secondary: #9aa7b9;
             --border: #1e2a44;
             --success: #2ecc71;
-            --danger: #e74c3c;
         }
 
         body {
@@ -34,15 +33,12 @@
         .navbar {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 16px 24px;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -81,20 +77,10 @@
             gap: 16px;
         }
 
-        .progress-badge {
-            background: var(--gold-dark);
-            color: var(--bg-dark);
-            border-radius: 20px;
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 32px 24px;
-            min-height: calc(100vh - 160px);
         }
 
         .activity-card {
@@ -103,12 +89,6 @@
             padding: 24px;
             margin-bottom: 24px;
             border: 1px solid var(--border);
-            transition: transform 0.2s;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--gold);
         }
 
         .question {
@@ -116,23 +96,6 @@
             font-weight: 500;
             margin-bottom: 16px;
             color: var(--gold);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .question-number {
-            background: var(--gold-dark);
-            color: var(--bg-dark);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
         }
 
         .answer-area {
@@ -144,12 +107,6 @@
             color: var(--text-primary);
             font-family: inherit;
             resize: vertical;
-            font-size: 0.95rem;
-        }
-
-        .answer-area:focus {
-            outline: none;
-            border-color: var(--gold);
         }
 
         .save-answer {
@@ -160,20 +117,6 @@
             border-radius: 30px;
             margin-top: 12px;
             cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .save-answer:hover {
-            background: #e6c453;
-            transform: scale(0.98);
-        }
-
-        .saved-indicator {
-            font-size: 0.7rem;
-            color: var(--success);
-            margin-left: 12px;
-            display: inline-block;
         }
 
         .forum-card {
@@ -187,39 +130,10 @@
         .forum-card h2 {
             color: var(--gold);
             margin-bottom: 20px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .forum-stats {
-            background: var(--bg-light);
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-        }
-
-        .stat-number {
-            color: var(--gold);
-            font-weight: bold;
-            font-size: 1.1rem;
         }
 
         .forum-posts {
-            max-height: 500px;
+            max-height: 400px;
             overflow-y: auto;
             margin-bottom: 24px;
         }
@@ -229,78 +143,16 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 12px;
-            transition: 0.2s;
-        }
-
-        .forum-post:hover {
-            background: #1a2542;
-        }
-
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
         }
 
         .post-author {
             color: var(--gold);
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .post-date {
             font-size: 0.7rem;
             color: var(--text-secondary);
-        }
-
-        .post-content {
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-
-        .post-actions {
-            display: flex;
-            gap: 16px;
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-            margin-top: 8px;
-        }
-
-        .post-like, .post-report {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: 0.2s;
-        }
-
-        .post-like:hover {
-            color: var(--gold);
-        }
-
-        .post-report:hover {
-            color: var(--danger);
-        }
-
-        .new-post {
-            margin-top: 24px;
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
-        }
-
-        .new-post h3 {
-            color: var(--gold);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
         }
 
         .new-post textarea {
@@ -314,11 +166,6 @@
             resize: vertical;
         }
 
-        .new-post textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
         .publish-btn {
             background: var(--gold);
             color: var(--bg-dark);
@@ -327,18 +174,6 @@
             border-radius: 30px;
             margin-top: 12px;
             cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .publish-btn:hover {
-            background: #e6c453;
-        }
-
-        .empty-forum {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-secondary);
         }
 
         .nav-buttons {
@@ -355,13 +190,7 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.2s;
             text-align: center;
-        }
-
-        .nav-btn:hover {
-            background: var(--gold);
-            transform: scale(1.02);
         }
 
         .footer {
@@ -373,32 +202,10 @@
             font-size: 0.85rem;
         }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            color: var(--gold);
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-        }
-
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 text-align: center;
-            }
-            .nav-links {
-                justify-content: center;
-            }
-            .forum-stats {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .post-header {
-                flex-direction: column;
-                align-items: flex-start;
             }
             .nav-buttons {
                 flex-direction: column;
@@ -409,100 +216,59 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="https://lrpluciano-pereira.github.io/index.html" class="logo">
-                <span>⚖️ Ética Digital</span>
-            </a>
+            <a href="/index/" class="logo">⚖️ Ética Digital</a>
             <div class="nav-links">
-                <a href="https://lrpluciano-pereira.github.io/index.html">🏠 Início</a>
-                <a href="https://lrpluciano-pereira.github.io/conteudo.html">📚 Conteúdo</a>
-                <a href="https://lrpluciano-pereira.github.io/simulador.html">🎮 Simulador</a>
-                <a href="https://lrpluciano-pereira.github.io/forum.html" class="active">💬 Atividades</a>
+                <a href="/index/">🏠 Início</a>
+                <a href="/conteudo/">📚 Conteúdo</a>
+                <a href="/simulador/">🎮 Simulador</a>
+                <a href="/forum/" class="active">💬 Atividades</a>
             </div>
             <div class="user-info">
-                <span class="progress-badge" id="progressBadge">0%</span>
                 <span id="userName">👤 Aluno</span>
+                <a href="/login/" style="color: var(--text-secondary); text-decoration: none;">🚪 Sair</a>
             </div>
         </div>
     </nav>
 
     <main class="container">
         <h1>💬 Atividades e Fórum</h1>
-        <p class="subtitle">Reflita sobre os conceitos estudados e compartilhe suas ideias com a comunidade</p>
 
-        <!-- ATIVIDADES REFLEXIVAS -->
         <div class="activity-card">
-            <div class="question">
-                <span class="question-number">1</span>
-                📝 Reflita e responda
-            </div>
-            <p style="margin-bottom: 16px; color: var(--text-secondary);">Em uma situação onde você está estudando para uma prova importante, mas seu celular não para de vibrar com mensagens de amigos. Como você aplicaria o conceito de "Justo Meio" de Aristóteles?</p>
+            <div class="question">1. Como você aplicaria o "Justo Meio" quando seu celular atrapalha os estudos?</div>
             <textarea class="answer-area" rows="3" id="resposta1" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(1)">💾 Salvar resposta</button>
-            <span id="saved1" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">
-                <span class="question-number">2</span>
-                📝 Reflita e responda
-            </div>
-            <p style="margin-bottom: 16px; color: var(--text-secondary);">Identifique uma situação do seu cotidiano digital onde você percebeu excesso ou falta no uso da tecnologia. Qual seria a atitude equilibrada (justo meio)?</p>
+            <div class="question">2. Identifique uma situação onde você percebeu excesso ou falta no uso da tecnologia.</div>
             <textarea class="answer-area" rows="3" id="resposta2" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(2)">💾 Salvar resposta</button>
-            <span id="saved2" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">
-                <span class="question-number">3</span>
-                📝 Reflita e responda
-            </div>
-            <p style="margin-bottom: 16px; color: var(--text-secondary);">O que é Eudaimonia para Aristóteles? Como as escolhas digitais podem afetar seu florescimento humano?</p>
+            <div class="question">3. O que é Eudaimonia? Como as escolhas digitais afetam seu florescimento?</div>
             <textarea class="answer-area" rows="3" id="resposta3" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(3)">💾 Salvar resposta</button>
-            <span id="saved3" class="saved-indicator"></span>
         </div>
 
         <div class="activity-card">
-            <div class="question">
-                <span class="question-number">4</span>
-                📝 Reflita e responda
-            </div>
-            <p style="margin-bottom: 16px; color: var(--text-secondary);">Compartilhe um dilema ético que você já viveu nas redes sociais e como poderia ter agido de forma mais equilibrada à luz da ética aristotélica.</p>
+            <div class="question">4. Compartilhe um dilema ético que você viveu nas redes sociais.</div>
             <textarea class="answer-area" rows="3" id="resposta4" placeholder="Digite sua reflexão..."></textarea>
             <button class="save-answer" onclick="salvarResposta(4)">💾 Salvar resposta</button>
-            <span id="saved4" class="saved-indicator"></span>
         </div>
 
-        <!-- FÓRUM DE DISCUSSÃO -->
         <div class="forum-card">
             <h2>💬 Fórum de Discussão</h2>
-            
-            <div class="forum-stats">
-                <div class="stat-item">
-                    📊 <span class="stat-number" id="totalPosts">0</span> posts no fórum
-                </div>
-                <div class="stat-item">
-                    ❤️ <span class="stat-number" id="totalLikes">0</span> curtidas
-                </div>
-                <div class="stat-item">
-                    👥 Comunidade ativa
-                </div>
-            </div>
-
             <div class="forum-posts" id="forumPosts"></div>
-            
             <div class="new-post">
-                <h3>✍️ Participar da discussão</h3>
-                <textarea id="newPostContent" rows="3" placeholder="Compartilhe sua opinião sobre o Justo Meio no ambiente digital. Como você aplica esses conceitos no seu dia a dia?"></textarea>
-                <button class="publish-btn" onclick="adicionarPost()">📢 Publicar no fórum</button>
+                <textarea id="newPost" rows="3" placeholder="Compartilhe sua opinião sobre o Justo Meio..."></textarea>
+                <button class="publish-btn" onclick="publicar()">📢 Publicar</button>
             </div>
         </div>
 
-        <!-- Navegação -->
         <div class="nav-buttons">
-            <a href="https://lrpluciano-pereira.github.io/simulador.html" class="nav-btn">🎮 Voltar ao Simulador</a>
-            <a href="https://lrpluciano-pereira.github.io/index.html" class="nav-btn">🏠 Voltar ao Dashboard</a>
+            <a href="/simulador/" class="nav-btn">🎮 Voltar ao Simulador</a>
+            <a href="/index/" class="nav-btn">🏠 Voltar ao Dashboard</a>
         </div>
     </main>
 
@@ -511,162 +277,61 @@
     </footer>
 
     <script>
-        // Carregar nome do usuário
-        const usuarioNome = localStorage.getItem('usuario_nome') || 'Aluno';
-        document.getElementById('userName').innerHTML = `👤 ${usuarioNome}`;
-
-        // Verificar login
-        if (!localStorage.getItem('usuario_logado')) {
-            window.location.href = 'https://lrpluciano-pereira.github.io/login.html';
-        }
-
-        // ATIVIDADES REFLEXIVAS
-        function salvarResposta(numero) {
-            const resposta = document.getElementById(`resposta${numero}`).value;
-            if (resposta.trim().length === 0) {
-                alert('Por favor, escreva sua reflexão antes de salvar.');
-                return;
+        function salvarResposta(num) {
+            const texto = document.getElementById(`resposta${num}`).value;
+            if (texto.trim()) {
+                localStorage.setItem(`resposta_atividade_${num}`, texto);
+                alert(`✅ Resposta ${num} salva!`);
+            } else {
+                alert('Digite sua reflexão antes de salvar.');
             }
-            
-            localStorage.setItem(`resposta_atividade_${numero}`, resposta);
-            
-            const savedSpan = document.getElementById(`saved${numero}`);
-            savedSpan.innerHTML = '✓ Salvo!';
-            savedSpan.style.color = '#2ecc71';
-            
-            setTimeout(() => {
-                savedSpan.innerHTML = '';
-            }, 3000);
-            
-            alert(`✅ Resposta ${numero} salva com sucesso!`);
         }
-        
+
         function carregarRespostas() {
-            for(let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 4; i++) {
                 const salva = localStorage.getItem(`resposta_atividade_${i}`);
-                const campo = document.getElementById(`resposta${i}`);
-                if(salva && campo) {
-                    campo.value = salva;
-                }
+                if (salva) document.getElementById(`resposta${i}`).value = salva;
             }
         }
-        
-        // FÓRUM
-        let totalLikes = 0;
-        
+
         function carregarForum() {
-            let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
+            const posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
             const container = document.getElementById('forumPosts');
-            const totalPostsSpan = document.getElementById('totalPosts');
-            
-            if (totalPostsSpan) totalPostsSpan.innerHTML = posts.length;
-            
-            if (!container) return;
-            
             if (posts.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-forum">
-                        💬 <strong>Nenhuma postagem ainda</strong><br>
-                        <span style="font-size: 0.85rem;">Seja o primeiro a compartilhar sua opinião sobre a ética digital!</span>
-                    </div>
-                `;
+                container.innerHTML = '<p style="text-align:center; padding:20px;">💬 Nenhuma postagem ainda. Seja o primeiro!</p>';
                 return;
             }
-            
-            totalLikes = posts.reduce((acc, post) => acc + (post.likes || 0), 0);
-            const totalLikesSpan = document.getElementById('totalLikes');
-            if (totalLikesSpan) totalLikesSpan.innerHTML = totalLikes;
-            
-            container.innerHTML = posts.map((post, index) => `
-                <div class="forum-post" data-post-id="${index}">
-                    <div class="post-header">
-                        <div class="post-author">👤 ${escapeHtml(post.autor)}</div>
-                        <div class="post-date">📅 ${post.data}</div>
-                    </div>
-                    <div class="post-content">${escapeHtml(post.conteudo)}</div>
-                    <div class="post-actions">
-                        <button class="post-like" onclick="darLike(${index})">❤️ ${post.likes || 0} curtidas</button>
-                        <button class="post-report" onclick="reportarPost(${index})">🚩 Reportar</button>
-                    </div>
+            container.innerHTML = posts.map(p => `
+                <div class="forum-post">
+                    <div class="post-author">👤 ${p.autor}</div>
+                    <div class="post-date">📅 ${p.data}</div>
+                    <p style="margin-top:8px;">${p.conteudo}</p>
                 </div>
             `).join('');
         }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        function darLike(postIndex) {
-            let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
-            if (posts[postIndex]) {
-                posts[postIndex].likes = (posts[postIndex].likes || 0) + 1;
-                localStorage.setItem('forum_posts', JSON.stringify(posts));
-                carregarForum();
-            }
-        }
-        
-        function reportarPost(postIndex) {
-            if (confirm('Tem certeza que deseja reportar este post? Nossa equipe irá analisar.')) {
-                alert('✅ Post reportado com sucesso. Obrigado por ajudar a manter a comunidade saudável!');
-            }
-        }
-        
-        function adicionarPost() {
-            const conteudo = document.getElementById('newPostContent').value;
-            if(!conteudo.trim()) {
-                alert('Digite uma mensagem antes de publicar.');
-                return;
-            }
-            
-            const nomes = [
-                'FilósofoDigital', 'JustoMeio', 'Eudaimon', 'SábioPrudente',
-                'Phronesis', 'AprendizDeÉtica', 'VirtudeDigital', 'Mesotes'
-            ];
-            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)] + Math.floor(Math.random() * 100);
-            
-            let posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
-            posts.unshift({
-                autor: nomeAleatorio,
-                data: new Date().toLocaleString('pt-BR'),
-                conteudo: conteudo,
-                likes: 0
-            });
-            
+
+        function publicar() {
+            const conteudo = document.getElementById('newPost').value;
+            if (!conteudo.trim()) { alert('Digite uma mensagem.'); return; }
+            const nomes = ['FilósofoDigital', 'JustoMeio', 'Eudaimon', 'SábioPrudente'];
+            const autor = nomes[Math.floor(Math.random() * nomes.length)] + Math.floor(Math.random() * 100);
+            const posts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
+            posts.unshift({ autor: autor, data: new Date().toLocaleString(), conteudo: conteudo });
             localStorage.setItem('forum_posts', JSON.stringify(posts));
-            document.getElementById('newPostContent').value = '';
+            document.getElementById('newPost').value = '';
             carregarForum();
-            alert('📢 Post publicado com sucesso!');
+            alert('📢 Post publicado!');
         }
-        
-        // PROGRESSO
-        function atualizarProgresso() {
-            let atividadesConcluidas = 0;
-            for(let i = 1; i <= 4; i++) {
-                const resposta = localStorage.getItem(`resposta_atividade_${i}`);
-                if(resposta && resposta.trim().length > 0) atividadesConcluidas++;
-            }
-            
-            const forumPosts = JSON.parse(localStorage.getItem('forum_posts') || '[]');
-            
-            let totalProgresso = 0;
-            let totalItens = 0;
-            totalProgresso += atividadesConcluidas;
-            totalItens += 4;
-            const forumCompleto = forumPosts.length >= 3 ? 1 : 0;
-            totalProgresso += forumCompleto;
-            totalItens += 1;
-            
-            const percentual = Math.round((totalProgresso / totalItens) * 100);
-            const progressBadge = document.getElementById('progressBadge');
-            if (progressBadge) progressBadge.innerHTML = `${percentual}%`;
-        }
-        
+
         carregarRespostas();
         carregarForum();
-        atualizarProgresso();
-        setInterval(() => { carregarForum(); atualizarProgresso(); }, 3000);
+
+        const usuarioNome = localStorage.getItem('usuario_nome') || 'Estudante';
+        document.getElementById('userName').innerHTML = `👤 ${usuarioNome}`;
+
+        if (!localStorage.getItem('usuario_logado')) {
+            window.location.href = '/login/';
+        }
     </script>
 </body>
 </html>
